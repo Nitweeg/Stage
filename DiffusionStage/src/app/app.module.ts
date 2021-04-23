@@ -13,6 +13,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ScansComponent } from './scans/scans.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ScansComponent } from './scans/scans.component';
     MatButtonModule,
     FlexLayoutModule,
     FormsModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
