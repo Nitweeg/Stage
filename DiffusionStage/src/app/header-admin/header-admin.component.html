@@ -1,160 +1,67 @@
 <!--Logo de l'entreprise + info utilisateur connecté-->
 
-<p id="util">Compte utilisateur</p>
-<img src="../../assets/img/LogoSolumat.jpg" alt="Solumat">
+<div class="flex-container">
+  <div class="flex-item"><img src="../../assets/img/LogoSolumat.jpg"></div>   
+  <div class="flex-item" style="padding-right: 3%;"><span id="compte">Compte utilisateur</span>
+    <button mat-icon-button>
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div> 
+</div>
 
 <!-- **** -->
 
-<!-- Début de ma tool barre -->
+<!-- Début de ma toolbar -->
 
   <div style="z-index: -1;"> 
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <div fxShow="true" fxHide.gt-sm="true">
         <button mat-icon-button (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
       </div>
   
-      <a mat-button class="companyName" routerLink="/index">
+      <a mat-flat-button class="companyName" routerLink="/index">
         <span>Accueil</span>
       </a>
-      <span class="example-spacer"></span>
+
       <div fxShow="true" fxHide.lt-md="true">
-        <a mat-button [routerLink]="['/Stock']">Gestion des stocks</a>
-        <a mat-button [routerLink]="['/AccueilDevis']">Gestion des devis</a>
-        <a mat-button [routerLink]="['/scans']">Historique des scans</a>
-        <a mat-button [routerLink]="['/logs']">Logs</a>
-        <a mat-button routerLink="">Déconnexion</a>
+        <a mat-flat-button class="item" [routerLink]="['/Stock']">Gestion des stocks</a>
+      </div>
+
+      <div fxShow="true" fxHide.lt-md="true">
+        <a mat-flat-button class="item" [routerLink]="['/AccueilDevis']">Gestion des devis</a>
+      </div>
+
+      <div fxShow="true" fxHide.lt-md="true">
+        <a mat-flat-button class="item" [routerLink]="['/scans']">Carnet</a>
+      </div>
+
+      <div fxShow="true" fxHide.lt-md="true">
+        <a mat-flat-button class="item" [routerLink]="['/logs']">Diffusion</a>
+      </div>
+
+      <div fxShow="true" fxHide.lt-md="true">
+        <a mat-flat-button class="item" [routerLink]="['/logs']">Admin</a>
       </div>
   
     </mat-toolbar>
-    <!-- Responsive de ma toolBarre-->
+
+    <!-- Responsive de ma toolBar-->
 
     <mat-sidenav-container fxFlexFill class="example-container">
   
-      <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+      <mat-sidenav #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
         <div fxLayout="column">
-          <a mat-button routerLink="">Gestion des stocks</a>
-          <a mat-button routerLink="">Gestion des devis</a>
-          <a mat-button routerLink="">Historique des scans</a>
-          <a mat-button routerLink="">Logs</a>
-          <a mat-button routerLink="">Déconnexion</a>
+          <a mat-flat-button [routerLink]="['/Stock']">Gestion des stocks</a>
+          <a mat-flat-button [routerLink]="['/AccueilDevis']">Gestion des devis</a>
+          <a mat-flat-button [routerLink]="['/scans']">Carnet</a>
+          <a mat-flat-button [routerLink]="['/logs']">Diffusion</a>
+          <a mat-flat-button [routerLink]="['/logs']">Admin</a>
         </div>
       </mat-sidenav>
+      
     <!-- **** -->
-
-      <!-- Zone de text de ma page  -->
-
-      <mat-list>
-        <mat-accordion>
-          <!-- #enddocregion basic-panel -->
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  GESTION DES STOCKS
-                </mat-panel-title>
-                <mat-panel-description>
-                  Description de l'utilisation
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <p>I'm visible because I am open</p>
-            </mat-expansion-panel>
-          </mat-accordion>
-      </mat-list>
-
-      <mat-list>
-        <mat-accordion>
-          <!-- #enddocregion basic-panel -->
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  GESTION DES DEVIS
-                </mat-panel-title>
-                <mat-panel-description>
-                  Description de l'utilisation
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <p>I'm visible because I am open</p>
-            </mat-expansion-panel>
-          </mat-accordion>
-      </mat-list>
-
-      <mat-list>
-        <mat-accordion>
-          <!-- #enddocregion basic-panel -->
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  HISTORIQUE DES SCANS
-                </mat-panel-title>
-                <mat-panel-description>
-                  Description de l'utilisation
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <p>I'm visible because I am open</p>
-            </mat-expansion-panel>
-          </mat-accordion>
-      </mat-list>
-
-      <mat-list>
-        <mat-accordion>
-          <!-- #enddocregion basic-panel -->
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  DIFFUSION
-                </mat-panel-title>
-                <mat-panel-description class="center">
-                  Description de l'utilisation
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <ul><li>test</li></ul>
-            </mat-expansion-panel>
-          </mat-accordion>
-      </mat-list>
-
-      <mat-list>
-        <mat-accordion>
-          <!-- #enddocregion basic-panel -->
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  RETOUR
-                </mat-panel-title>
-                <mat-panel-description>
-                  Description de l'utilisation
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <p>I'm visible because I am open</p>
-            </mat-expansion-panel>
-          </mat-accordion>
-      </mat-list>
-
-      <mat-list>
-        <mat-accordion>
-          <!-- #enddocregion basic-panel -->
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  LOGS
-                </mat-panel-title>
-                <mat-panel-description>
-                  Description de l'utilisation
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <p>I'm visible because I am open</p>
-            </mat-expansion-panel>
-          </mat-accordion>
-      </mat-list>
-
-      <!-- **** -->
-
 
     </mat-sidenav-container>
   </div>

@@ -1,24 +1,24 @@
+
 /*Logo solumat*/
+
 img{
-    width:15%;
-    margin-right: 50%;
-}
-#util{
-    float: right;
-    margin-right: 20px; 
-    margin-top: 2.5%; 
-    font-size: 150%;
+    width:40%;
 }
 
 /**/
 
 /*Tool barre*/
+
 .companyName{
-    font-size: 150%;
+    font-size: 110%;
+    background-color: transparent;
+    border-bottom: 4px solid rgb(255, 0, 34);
+
 }
 
 .mat-toolbar{
   height: 7vh;
+  background-color: white;
 }
 
 div {
@@ -32,7 +32,13 @@ div {
 a{
     font-size: 110%;
     white-space: normal;
+    color: rgb(129, 127, 127);
 }
+
+.item:hover {
+    border-bottom: 4px solid rgb(65, 45, 155);
+}
+
 
 button{
     font-size: 110%;
@@ -43,18 +49,15 @@ button{
     padding: 0 14px;
 }
   
-.example-spacer {
-    flex: 1 1 auto;
-}
-
 .mat-sidenav-content{
-      font-size: 200%;
+      font-size: 110%;
       text-align: center;
 }
 
 /**/
 
 /*Zone de texte*/
+
 h1{
     margin-top:3%;
     margin-left: 3%;
@@ -65,3 +68,28 @@ h1{
     text-align: center;
 }
 /**/
+
+/*Compte utilisateur*/
+
+.flex-container{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-item{ 
+    justify-content:flex-end;
+    font-size: 110%;
+}
+
+#compte{
+    font-size: 110%;
+}
+
+.flex-container :nth-child(1){
+    background: red;
+}
+
+/**/
+
