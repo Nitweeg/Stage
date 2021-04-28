@@ -2,7 +2,7 @@
 /*Logo solumat*/
 
 img{
-    width:40%;
+    width:18vh;
 }
 
 /**/
@@ -11,8 +11,7 @@ img{
 
 .companyName{
     font-size: 110%;
-    background-color: transparent;
-    border-bottom: 4px solid rgb(255, 0, 34);
+    border-bottom: red solid 4px;
 
 }
 
@@ -76,20 +75,40 @@ h1{
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    align-content: center;
+    background-image:url(../../assets/img/backgroundutil.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 30vw 9vh;
+    height: 100%;
 }
 
 .flex-item{ 
     justify-content:flex-end;
-    font-size: 110%;
+    font-size: 1.3vw;
 }
 
 #compte{
-    font-size: 110%;
+    font-size: 1vw;
+    padding: 1.2vh;
 }
 
-.flex-container :nth-child(1){
-    background: red;
+
+.border{
+    border: solid black 2px;
+    box-shadow: 2px 2px 2px black;
+    background-color: white;    
+    border-radius: 2px;
+    display: inline-flex;
+    margin-right: 5vh;
 }
 
+.mat-icon{
+    font-size: 2vw;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
 /**/
 

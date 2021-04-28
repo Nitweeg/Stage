@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ScansComponent } from './scans/scans.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     FlexLayoutModule,
     FormsModule,
     MatExpansionModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
