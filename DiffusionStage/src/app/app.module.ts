@@ -16,6 +16,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
 import { DiffusionComponent } from './diffusion/diffusion.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
+import { DataTableComponent } from './data-table/data-table.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 
 @NgModule({
@@ -23,6 +28,7 @@ import {MatMenuModule} from '@angular/material/menu';
     AppComponent,
     HeaderAdminComponent,
     DiffusionComponent,
+    DataTableComponent,
   ],
   imports: [
     MatGridListModule,
@@ -39,8 +45,13 @@ import {MatMenuModule} from '@angular/material/menu';
     MatExpansionModule,
     MatDividerModule,
     MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
