@@ -76,17 +76,15 @@ h1{
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: center;
-    align-content: center;
     background-image:url(../../assets/img/backgroundutil.jpg);
     background-repeat: no-repeat;
     background-position: top right;
     background-size: 30vw 9vh;
     height: 100%;
+    align-items: center;
 }
 
 .flex-item{ 
-    justify-content:flex-end;
     font-size: 1.3vw;
 }
 
@@ -120,12 +118,38 @@ h1{
 
 /* Sous-Menu */
 
-.mat-menu-panel{
+
+/**/
+
+/*Grid*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0% 0%;
+    grid-template-areas:
+      "Search Search PDF PDF"
+      "Search Search PDF PDF"
+      "Tab Tab PDF PDF"
+      "Tab Tab PDF PDF";
+  }
+
+.PDF { 
+    grid-area: PDF; 
     background-color: red;
 }
 
-.mat-menu-content {
-    background-color: red !important;
+.Search { 
+    grid-area: Search;
+    background-color: green; 
 }
 
+.Tab { 
+    grid-area: Tab;
+    background-color: blue;
+}
+
+table {
+    width: 100%;
+  }
 /**/
