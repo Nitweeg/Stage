@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DiffusionComponent } from './diffusion/diffusion.component';
 import {HeaderAdminComponent} from './header-admin/header-admin.component';
-import {ScansComponent} from './scans/scans.component'
 
 const routes: Routes = [
   { path: 'index', component: HeaderAdminComponent,},
-  { path: 'scans', component: ScansComponent,}
+  { path: 'diffusion', component: DiffusionComponent},
 ];
 
 @NgModule({

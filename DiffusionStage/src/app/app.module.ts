@@ -12,16 +12,17 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ScansComponent } from './scans/scans.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
+import { DiffusionComponent } from './diffusion/diffusion.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderAdminComponent,
-    ScansComponent,
+    DiffusionComponent,
   ],
   imports: [
     MatGridListModule,
@@ -37,6 +38,7 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     MatExpansionModule,
     MatDividerModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
