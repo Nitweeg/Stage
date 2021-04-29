@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-diffusion',
   templateUrl: './diffusion.component.html',
@@ -8,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DiffusionComponent implements OnInit {
-  
+
   constructor() { }
 
   ngOnInit(): void {

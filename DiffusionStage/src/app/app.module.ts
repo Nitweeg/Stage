@@ -17,11 +17,12 @@ import {MatDividerModule} from '@angular/material/divider';
 import { DiffusionComponent } from './diffusion/diffusion.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
-import { DataTableComponent } from './data-table/data-table.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-
-
+import { DataTableComponent } from './data-table/data-table.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -48,8 +49,13 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,30 +1,61 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { DataTableDataSource, DataTableItem } from './data-table-datasource';
+import { Component, OnInit } from '@angular/core';
+import {SelectionModel} from '@angular/cdk/collections';
+import {MatTableDataSource} from '@angular/material/table';
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'file:///C:/Users/Maxime/Desktop/ProjetEntrepriseComynTredezWojtyna.pdf', weight: 0},
+  {position: 2, name: 'Helium', weight: 0},
+  {position: 3, name: 'Lithium', weight: 0},
+  {position: 4, name: 'Beryllium', weight: 0},
+];
 
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.css']
 })
-export class DataTableComponent implements AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<DataTableItem>;
-  dataSource: DataTableDataSource;
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'lien'];
 
-  constructor() {
-    this.dataSource = new DataTableDataSource();
+export class DataTableComponent implements OnInit {
+
+  displayedColumns: string[] = ['select', 'position', 'name', 'weight'];
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  selection = new SelectionModel<PeriodicElement>(true, []);
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
   }
+
+  checkboxLabel(row?: PeriodicElement): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }
