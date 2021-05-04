@@ -31,6 +31,8 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { SearchComponent } from './search/search.component';
 import { DataUtilComponent } from './data-util/data-util.component';
 import {MatTreeModule} from '@angular/material/tree';
+import { MenuParametreComponent } from './menu-parametre/menu-parametre.component';
+import { DataParametreComponent } from './data-parametre/data-parametre.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import {MatTreeModule} from '@angular/material/tree';
     UtilisateurComponent,
     SearchComponent,
     DataUtilComponent,
+    MenuParametreComponent,
+    DataParametreComponent,
   ],
   imports: [
     MatGridListModule,

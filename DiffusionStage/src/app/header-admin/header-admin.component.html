@@ -3,20 +3,8 @@
   <div class="flex-item">
     <span id="compte">Fred Delattre</span>
     
-    <button mat-icon-button [matMenuTriggerFor]="settings">
-      <mat-icon style="font-size: 3vh;">settings</mat-icon>
-    </button>
-    <mat-menu #settings="matMenu">
-      <button mat-menu-item [routerLink]="['/logs']">
-        <span>Logs</span>
-      </button>
-      <button mat-menu-item [routerLink]="['/utilisateur']">
-        <span>Utilisateur</span>
-      </button>
-      <button mat-menu-item [routerLink]="['/parametre']">
-        <span>Paramètre</span>
-      </button>
-    </mat-menu>
+    <app-menu-parametre></app-menu-parametre>
+    
     <button mat-icon-button >
       <mat-icon style="font-size: 3vh;">logout</mat-icon>
     </button> 
@@ -28,60 +16,78 @@
 <!-- Début de ma toolbar -->
 
   <div style="z-index: -1;"> 
-    <mat-toolbar>
-      <div fxShow="true" fxHide.gt-sm="true">
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon style="font-size: 3vh;">menu</mat-icon>
-        </button>
-      </div>
+      <mat-toolbar>
+          <div fxShow="true" fxHide.gt-sm="true">
+          <button mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon style="font-size: 3vh;">menu</mat-icon>
+          </button>
+          </div>
+      
+          <div fxShow="true" fxHide.lt-md="true">
+          <a mat-flat-button class="item" [routerLink]="['/index']">Accueil</a>
+          </div>
   
-      <div fxShow="true" fxHide.lt-md="true">
-        <a mat-flat-button class="companyName" [routerLink]="['/index']">Accueil</a>
-      </div>
-
-      <div fxShow="true" fxHide.lt-md="true">
-        <a mat-flat-button class="item" [routerLink]="['/Stock']">Gestion des stocks</a>
-      </div>
-
-      <div fxShow="true" fxHide.lt-md="true">
-        <a mat-flat-button class="item" [routerLink]="['/AccueilDevis']">Gestion des devis</a>
-      </div>
-
-      <div fxShow="true" fxHide.lt-md="true">
-        <a mat-flat-button class="item" [routerLink]="['/Carnet']">Carnet</a>
-      </div>
-
-      <div fxShow="true" fxHide.lt-md="true">
-        <a mat-flat-button class="accueil" [matMenuTriggerFor]="menu" (mouseenter)="openMyMenu()">Diffusion</a>
-        <mat-menu #menu="matMenu">
-          <a  mat-flat-button [routerLink]="['/diffusion']">Retour</a>
-          <a  mat-flat-button [routerLink]="['/scans']">Scans</a>
-        </mat-menu>
-      </div>
+          <div fxShow="true" fxHide.lt-md="true">
+          <a mat-flat-button class="item" [routerLink]="['/Stock']">Gestion des stocks</a>
+          </div>
   
-    </mat-toolbar>
-
-    <!-- Responsive de ma toolBar-->
-
-    <mat-sidenav-container fxFlexFill class="example-container">
+          <div fxShow="true" fxHide.lt-md="true">
+          <a mat-flat-button class="item" [routerLink]="['/AccueilDevis']">Gestion des devis</a>
+          </div>
   
-      <mat-sidenav #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
-        <div fxLayout="column">
-          <a mat-flat-button [routerLink]="['/index']" class="item">Accueil</a>
-          <a mat-flat-button [routerLink]="['/Stock']" class="item">Gestion des stocks</a>
-          <a mat-flat-button [routerLink]="['/AccueilDevis']" class="item">Gestion des devis</a>
-          <a mat-flat-button [routerLink]="['/scans']" class="item">Carnet</a>
-          <a mat-flat-button [routerLink]="['/Diffusion']" class="companyName" [matMenuTriggerFor] = "dif">Diffusion</a>
+          <div fxShow="true" fxHide.lt-md="true">
+          <a mat-flat-button class="item" [routerLink]="['/Carnet']">Carnet</a>
+          </div>
+  
+          <div fxShow="true" fxHide.lt-md="true" >
+          <a mat-flat-button class="item" (mouseenter)="openMyMenu()" [matMenuTriggerFor] = "dif">Diffusion</a>
           <mat-menu #dif="matMenu">
-              <a  mat-menu-item [routerLink]="['/scans']" >Retour</a>
-              <a  mat-menu-item [routerLink]="['/scans']">Scans</a>
-            </mat-menu>
-        </div>
-      </mat-sidenav>
-    <!-- **** -->
-    <mat-divider></mat-divider>
-    </mat-sidenav-container>
-    </div>
+              <a  mat-flat-button [routerLink]="['/diffusion']">Retour</a>
+              <a  mat-flat-button [routerLink]="['/scans']">Scans</a>
+          </mat-menu>
+          </div>
+      
+      </mat-toolbar>
+  
+      <!-- Responsive de ma toolBar-->
+  
+      <mat-sidenav-container fxFlexFill class="example-container">
+      
+          <mat-sidenav #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+              <div fxLayout="column">
+                  <a mat-flat-button [routerLink]="['/index']" class="item">Accueil</a>
+                  <a mat-flat-button [routerLink]="['/Stock']" class="item">Gestion des stocks</a>
+                  <a mat-flat-button [routerLink]="['/AccueilDevis']" class="item">Gestion des devis</a>
+                  <a mat-flat-button [routerLink]="['/scans']" class="item">Carnet</a>
+                  <a mat-flat-button [routerLink]="['/Diffusion']" class="item" [matMenuTriggerFor] = "dif">Diffusion</a>
+                  <mat-menu #dif="matMenu">
+                      <a  mat-menu-item [routerLink]="['/scans']" >Retour</a>
+                      <a  mat-menu-item [routerLink]="['/scans']">Scans</a>
+                  </mat-menu>
+              </div>
+          </mat-sidenav>
+      <!-- **** -->
+          <mat-divider></mat-divider>
+          <div class="grid-container2">
 
-
-<!-- **** -->
+            <div class="Fleche">
+                <mat-accordion>
+                      <mat-expansion-panel hideToggle [(expanded)]="xpandStatus" disabled>
+                        <mat-expansion-panel-header>
+                            <mat-form-field style="background-color: white; width: 100%;">
+                                <mat-label>Filter</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" placeholder="Nom PDF" #input>
+                              </mat-form-field>
+                              <button (click)='xpandStatus=xpandStatus?false:true'><mat-icon>swap_vert</mat-icon></button>
+                              <tr class="mat-row" *matNoDataRow>
+                                <td class="mat-cell" colspan="4">Aucun pdf ne correspond à votre demande "{{input.value}}"</td>
+                              </tr>
+                        </mat-expansion-panel-header>
+                        <button>test</button>
+                      </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            </div>
+            
+</mat-sidenav-container>
+</div>

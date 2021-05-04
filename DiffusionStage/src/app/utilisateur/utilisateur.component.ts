@@ -1,7 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {SelectionModel} from '@angular/cdk/collections';
-import { DataTableComponent } from '../data-table/data-table.component';
+import {MatMenuTrigger} from '@angular/material/menu';
 
 export interface PeriodicElement {
   name: string;
@@ -27,6 +26,8 @@ export class UtilisateurComponent implements OnInit {
   displayedColumns: string[] = ['select', 'position', 'name', 'weight'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
+  @ViewChild(MatMenuTrigger) test!: MatMenuTrigger;
+
   menuOpened() {
     console.log('Menu is open');
   }
@@ -34,6 +35,13 @@ export class UtilisateurComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  openMyMenu() {
+    this.test.toggleMenu();
+  } 
+  closeMyMenu() {
+    this.test.closeMenu();
   }
 
   xpandStatus=false;

@@ -3,20 +3,8 @@
     <div class="flex-item">
       <span id="compte">Fred Delattre</span>
       
-      <button mat-icon-button [matMenuTriggerFor]="settings">
-        <mat-icon style="font-size: 3vh; background-color: red;">settings</mat-icon>
-      </button>
-      <mat-menu #settings="matMenu">
-        <button mat-menu-item [routerLink]="['/logs']">
-          <span>Logs</span>
-        </button>
-        <button class="companyName"mat-menu-item [routerLink]="['/utilisateur']">
-          <span>Utilisateur</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/parametre']">
-          <span>Paramètre</span>
-        </button>
-      </mat-menu>
+      <app-menu-parametre></app-menu-parametre>
+      
       <button mat-icon-button >
         <mat-icon style="font-size: 3vh;">logout</mat-icon>
       </button> 
@@ -51,9 +39,9 @@
             <a mat-flat-button class="item" [routerLink]="['/Carnet']">Carnet</a>
             </div>
     
-            <div fxShow="true" fxHide.lt-md="true">
-            <a mat-flat-button class="item" [matMenuTriggerFor] = "menu">Diffusion</a>
-            <mat-menu #menu="matMenu">
+            <div fxShow="true" fxHide.lt-md="true" >
+            <a mat-flat-button class="item" (mouseenter)="openMyMenu()" [matMenuTriggerFor] = "dif">Diffusion</a>
+            <mat-menu #dif="matMenu">
                 <a  mat-flat-button [routerLink]="['/diffusion']">Retour</a>
                 <a  mat-flat-button [routerLink]="['/scans']">Scans</a>
             </mat-menu>

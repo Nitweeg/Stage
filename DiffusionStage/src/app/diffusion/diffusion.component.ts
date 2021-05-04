@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
-import { DataTableComponent } from '../data-table/data-table.component';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 export interface PeriodicElement {
   name: string;
@@ -24,20 +24,34 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class DiffusionComponent implements OnInit {
 
+
   displayedColumns: string[] = ['select', 'position', 'name', 'weight'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
+  @ViewChild(MatMenuTrigger) test!: MatMenuTrigger;
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+
   menuOpened() {
     console.log('Menu is open');
   }
+
+  xpandStatus=false;
   
-  constructor() { }
+  openMyMenu() {
+    this.test.toggleMenu();
+  } 
+  closeMyMenu() {
+    this.test.closeMenu();
+  }
+
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
     
