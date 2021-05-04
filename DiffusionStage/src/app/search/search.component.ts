@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import { DataTableComponent } from '../data-table/data-table.component';
@@ -16,13 +16,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 4, name: 'Beryllium', weight: 0},
 ];
 
-@Component({
-  selector: 'app-diffusion',
-  templateUrl: './diffusion.component.html',
-  styleUrls: ['./diffusion.component.css']
-})
 
-export class DiffusionComponent implements OnInit {
+@Component({
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
+})
+export class SearchComponent implements OnInit {
 
   displayedColumns: string[] = ['select', 'position', 'name', 'weight'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -36,16 +36,10 @@ export class DiffusionComponent implements OnInit {
   menuOpened() {
     console.log('Menu is open');
   }
-  
+
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
-
 }
-function menuOpened() {
-  throw new Error('Function not implemented.');
-}
-

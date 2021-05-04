@@ -19,6 +19,10 @@ img{
 .mat-toolbar{
   height: 7vh;
   background-color: white;
+  background-image: url(../../assets/img/backgroundutil.jpg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size:28vw 7vh;
 }
 
 div {
@@ -76,34 +80,21 @@ h1{
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    background-image:url(../../assets/img/backgroundutil.jpg);
-    background-repeat: no-repeat;
-    background-position: top right;
-    background-size: 30vw 9vh;
+    
     height: 100%;
+    align-items: center;
 }
 
 .flex-item{ 
-    justify-content:flex-end;
     font-size: 1.3vw;
 }
 
 #compte{
-    font-size: 1vw;
+    font-size: 1.5vw;
     padding: 1.2vh;
+    color:rgb(0, 0, 121);
 }
 
-
-.border{
-    border: solid black 2px;
-    box-shadow: 2px 2px 2px black;
-    background-color: white;    
-    border-radius: 2px;
-    display: inline-flex;
-    margin-right: 5vh;
-}
 
 .mat-icon{
     font-size: 2vw;
@@ -114,8 +105,64 @@ h1{
   }
 /**/
 
-/* Divider */
 
+/*Grid*/
 
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 0% 45% 45%;
+    gap: 0% 0%;
+    grid-template-areas:
+      "Search Search Search Search"
+      "Tab Tab PDF PDF"
+      "Tab Tab PDF PDF"
+      "Tab Tab PDF PDF";
+  }
+
+.PDF { 
+    grid-area: PDF; 
+    background-color: red;
+}
+
+.Search { 
+    grid-area: Search;
+    background-color: green; 
+}
+
+.Tab { 
+    grid-area: Tab;
+    text-align: center;
+}
+
+/**/
+
+/* Grid Search-bar */
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3 100%);
+    gap: 0px 0px;
+    grid-template-areas:
+      "Fleche"
+      "Filter"
+      "Epingle";
+  }
+
+.Fleche { 
+      grid-area: Fleche;
+      background-color: aqua; 
+}
+
+.Epingle { 
+    grid-area: Epingle;
+    background-color:chartreuse; 
+}
+
+.Filter { 
+    grid-area: Filter;
+    background-color: brown; 
+}
 
 /**/

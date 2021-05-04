@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
 
 export interface PeriodicElement {
   name: string;
@@ -13,6 +14,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 2, name: 'Helium', weight: 0},
   {position: 3, name: 'Lithium', weight: 0},
   {position: 4, name: 'Beryllium', weight: 0},
+  {position: 5, name: 'test1', weight: 0},
+  {position: 6, name: 'test2', weight: 0},
+  {position: 7, name: 'test3', weight: 0},
+  {position: 8, name: 'test4', weight: 0},
+  {position: 9, name: 'test5', weight: 0},
+  {position: 10, name: 'Beryllium', weight: 0},
+  {position: 11, name: 'Beryllium', weight: 0},
+  {position: 12, name: 'Beryllium', weight: 0},
+  {position: 13, name: 'Beryllium', weight: 0},
+  {position: 14, name: 'Beryllium', weight: 0},
+  {position: 15, name: 'Beryllium', weight: 0},
+  {position: 16, name: 'Beryllium', weight: 0},
+
 ];
 
 @Component({
@@ -48,9 +62,10 @@ export class DataTableComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   constructor() { }

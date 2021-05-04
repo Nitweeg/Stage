@@ -1,16 +1,25 @@
-<!--Logo de l'entreprise + info utilisateur connecté-->
-
 <div class="flex-container">
   <div class="flex-item"><img src="../../assets/img/LogoSolumat.jpg"></div> 
-  
   <div class="flex-item">
-    <div class="border">
-      <span id="compte">Fred</span>
-      <button mat-icon-button style="float: right; margin-left: 2vw; margin-right: vh;">
-        <mat-icon>logout</mat-icon>
-      </button>
-    </div>
+    <span id="compte">Fred Delattre</span>
     
+    <button mat-icon-button [matMenuTriggerFor]="settings">
+      <mat-icon style="font-size: 3vh;">settings</mat-icon>
+    </button>
+    <mat-menu #settings="matMenu">
+      <button mat-menu-item [routerLink]="['/logs']">
+        <span>Logs</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/utilisateur']">
+        <span>Utilisateur</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/parametre']">
+        <span>Paramètre</span>
+      </button>
+    </mat-menu>
+    <button mat-icon-button >
+      <mat-icon style="font-size: 3vh;">logout</mat-icon>
+    </button> 
   </div> 
 </div>
 
@@ -27,7 +36,7 @@
       </div>
   
       <div fxShow="true" fxHide.lt-md="true">
-        <a mat-flat-button class="companyName" [routerLink]="['/Accueil']">Accueil</a>
+        <a mat-flat-button class="companyName" [routerLink]="['/index']">Accueil</a>
       </div>
 
       <div fxShow="true" fxHide.lt-md="true">
@@ -43,13 +52,11 @@
       </div>
 
       <div fxShow="true" fxHide.lt-md="true">
-        <a mat-flat-button class="item" [routerLink]="['/diffusion']">Diffusion</a>
-      </div>
-
-      <span class="example-spacer"></span>
-
-      <div fxShow="true" fxHide.lt-md="true">
-        <a mat-flat-button class="item" [routerLink]="['/logs']">Admin</a>
+        <a mat-flat-button class="accueil" [matMenuTriggerFor]="menu" (mouseenter)="openMyMenu()">Diffusion</a>
+        <mat-menu #menu="matMenu">
+          <a  mat-flat-button [routerLink]="['/diffusion']">Retour</a>
+          <a  mat-flat-button [routerLink]="['/scans']">Scans</a>
+        </mat-menu>
       </div>
   
     </mat-toolbar>
@@ -60,19 +67,21 @@
   
       <mat-sidenav #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
         <div fxLayout="column">
-          <a mat-flat-button [routerLink]="['/Stock']" class="companyName">Accueil</a>
+          <a mat-flat-button [routerLink]="['/index']" class="item">Accueil</a>
           <a mat-flat-button [routerLink]="['/Stock']" class="item">Gestion des stocks</a>
           <a mat-flat-button [routerLink]="['/AccueilDevis']" class="item">Gestion des devis</a>
           <a mat-flat-button [routerLink]="['/scans']" class="item">Carnet</a>
-          <a mat-flat-button [routerLink]="['/logs']" class="item">Diffusion</a>
-          <a mat-flat-button [routerLink]="['/logs']" class="item">Admin</a>
+          <a mat-flat-button [routerLink]="['/Diffusion']" class="companyName" [matMenuTriggerFor] = "dif">Diffusion</a>
+          <mat-menu #dif="matMenu">
+              <a  mat-menu-item [routerLink]="['/scans']" >Retour</a>
+              <a  mat-menu-item [routerLink]="['/scans']">Scans</a>
+            </mat-menu>
         </div>
       </mat-sidenav>
-
-      <mat-divider></mat-divider>
     <!-- **** -->
-
+    <mat-divider></mat-divider>
     </mat-sidenav-container>
-  </div>
+    </div>
+
 
 <!-- **** -->

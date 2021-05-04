@@ -1,19 +1,17 @@
-<!--Logo de l'entreprise + info utilisateur connecté-->
-
 <div class="flex-container">
     <div class="flex-item"><img src="../../assets/img/LogoSolumat.jpg"></div> 
     <div class="flex-item">
       <span id="compte">Fred Delattre</span>
       
       <button mat-icon-button [matMenuTriggerFor]="settings">
-        <mat-icon style="font-size: 3vh;">settings</mat-icon>
+        <mat-icon style="font-size: 3vh; background-color: red;">settings</mat-icon>
       </button>
       <mat-menu #settings="matMenu">
         <button mat-menu-item [routerLink]="['/logs']">
           <span>Logs</span>
         </button>
         <button mat-menu-item [routerLink]="['/utilisateur']">
-          <span>Utilisateur</span>
+          <span class="companyName">Utilisateur</span>
         </button>
         <button mat-menu-item [routerLink]="['/parametre']">
           <span>Paramètre</span>
@@ -54,9 +52,9 @@
         </div>
   
         <div fxShow="true" fxHide.lt-md="true">
-          <a mat-flat-button class="companyName" [matMenuTriggerFor] = "menu">Diffusion</a>
+          <a mat-flat-button class="item" [routerLink]="['/diffusion']" [matMenuTriggerFor] = "menu">Diffusion</a>
           <mat-menu #menu="matMenu">
-            <a  mat-flat-button [routerLink]="['/diffusion']">Retour</a>
+            <a  mat-flat-button [routerLink]="['/retour']">Retour</a>
             <a  mat-flat-button [routerLink]="['/scans']">Scans</a>
           </mat-menu>
         </div>
@@ -73,7 +71,7 @@
             <a mat-flat-button [routerLink]="['/Stock']" class="item">Gestion des stocks</a>
             <a mat-flat-button [routerLink]="['/AccueilDevis']" class="item">Gestion des devis</a>
             <a mat-flat-button [routerLink]="['/scans']" class="item">Carnet</a>
-            <a mat-flat-button [routerLink]="['/Diffusion']" class="companyName" [matMenuTriggerFor] = "dif">Diffusion</a>
+            <a mat-flat-button [routerLink]="['/Diffusion']" class="item" [matMenuTriggerFor] = "dif">Diffusion</a>
             <mat-menu #dif="matMenu">
                 <a  mat-menu-item [routerLink]="['/scans']" >Retour</a>
                 <a  mat-menu-item [routerLink]="['/scans']">Scans</a>
@@ -87,7 +85,7 @@
 
         <div class="Fleche">
 
-          <button mat-icon-button [matMenuTriggerFor]="test">
+          <button mat-icon-button [matMenuTriggerFor]="test" (menuOpened)="menuOpened()">
             <mat-icon>swap_vertical_circle</mat-icon>
           </button>
 
@@ -100,27 +98,12 @@
               <tr class="mat-row" *matNoDataRow>
                 <td class="mat-cell" colspan="4">Aucun pdf ne correspond à votre demande "{{input.value}}"</td>
               </tr>
+              <p class="material-icons">
+                push_pin
+              </p>
+      
           </mat-menu>
           
         </div>        
 
       </div>
-
-      
-
-    <div class="grid-container">
-        <div class="PDF">
-          <p style="text-align: center;">
-            <iframe src="http://perso.jojaba.fr/xmedia/actus/Le_modele_tabulaire_en_CSS_Alsacreations_Raphael_Goetter.pdf" width="600" height="800" style="max-width: 100%;"></iframe>
-        </p>
-        </div>
-        <div class="Search"></div>
-        <div class="Tab">
-            <app-data-table #merde></app-data-table>
-        </div>
-    </div>
-      </mat-sidenav-container>
-    </div>
-
-    <mat-divider></mat-divider>
-  <!-- **** -->
