@@ -33,6 +33,7 @@ import { DataUtilComponent } from './data-util/data-util.component';
 import {MatTreeModule} from '@angular/material/tree';
 import { MenuParametreComponent } from './menu-parametre/menu-parametre.component';
 import { DataParametreComponent } from './data-parametre/data-parametre.component';
+import { DataScansComponent } from './data-scans/data-scans.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { DataParametreComponent } from './data-parametre/data-parametre.componen
     DataUtilComponent,
     MenuParametreComponent,
     DataParametreComponent,
+    DataScansComponent,
   ],
   imports: [
     MatGridListModule,

@@ -28,7 +28,7 @@ export class ScansComponent implements OnInit {
     console.log('Menu is open');
   }
 
-  displayedColumns: string[] = ['select', 'position', 'name', 'weight'];
+  displayedColumns: string[] = ['position', 'name', 'weight'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
 

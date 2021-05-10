@@ -1,11 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import {MatMenuTrigger} from '@angular/material/menu';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
+}
+
+export interface PopDate {
+  debut: Date;
+  fin: Date;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -15,6 +22,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 4, name: 'Beryllium', weight: 0},
 ];
 
+export class popupdate {
+  constructor(@Inject (MAT_DIALOG_DATA) public data: PopDate) {}
+}
+
+
+
 @Component({
   selector: 'app-logs',
   templateUrl: './logs.component.html',
@@ -22,7 +35,22 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class LogsComponent implements OnInit {
 
+  constructor() {}
+
+  public date!: MatDialog
+
   @ViewChild(MatMenuTrigger) test!: MatMenuTrigger;
+
+  openDate() {
+    this.date.open(popupdate, {
+      data: {
+        debut: '2018-06-12',
+        fin: '2019-07-14'
+      }
+    });
+  }
+
+
 
   menuOpened() {
     console.log('Menu is open');
@@ -46,9 +74,8 @@ export class LogsComponent implements OnInit {
     this.test.closeMenu();
   }
 
-  constructor() { }
-
   ngOnInit(): void {
   }
+
 
 }

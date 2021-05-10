@@ -16,14 +16,14 @@
         <mat-checkbox (click)="$event.stopPropagation()"
                       (change)="$event ? selection.toggle(row) : null"
                       [checked]="selection.isSelected(row)"
-                      [aria-label]="checkboxLabel(row)">
+                      >
         </mat-checkbox>
       </td>
     </ng-container>
   
     <!-- N° Column -->
-    <ng-container matColumnDef="position" style="text-align: center;">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;"> No. </th>
       <td mat-cell *matCellDef="let element"> {{element.position}} </td>
     </ng-container>
   
@@ -48,7 +48,7 @@
   <mat-paginator #paginator
       [length]="dataSource?.data?.length"
       [pageIndex]="0"
-      [pageSize]="13"
-      [pageSizeOptions]="[1,5, 10,13, 20]">
+      [pageSize]="10"
+      [pageSizeOptions]="[1,10, 50, 100, 500]">
   </mat-paginator>
 </div>
