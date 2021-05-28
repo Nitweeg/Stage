@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import { ApiRestService } from '../service/api-rest.service';
 import { User } from '../Model/user.model';
+import { ApiRestService } from '../service/api-rest.service';
 
 @Component({
   selector: 'app-data-util',

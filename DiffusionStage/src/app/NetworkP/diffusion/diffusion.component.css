@@ -1,3 +1,4 @@
+
 /*Logo solumat*/
 
 img{
@@ -18,7 +19,7 @@ img{
 .mat-toolbar{
   height: 7vh;
   background-color: white;
-  background-image: url(../../assets/img/backgroundutil.jpg);
+  background-image: url(../../../assets/img/backgroundutil.jpg);
   background-repeat: no-repeat;
   background-position: top right;
   background-size:28vw 7vh;
@@ -95,6 +96,10 @@ h1{
 }
 
 
+.mat-icon{
+    font-size: 2vw;
+}
+
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -159,11 +164,5 @@ h1{
     grid-area: Filter;
     background-color: brown; 
 }
-
-/**/
-
-/*navbarre*/
-
-
 
 /**/

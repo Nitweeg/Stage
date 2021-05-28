@@ -9,8 +9,8 @@ import { retry, catchError, map } from 'rxjs/operators';
 })
 export class ApiRestService {
 
-  //apiURL = 'http://193.251.23.107:5500/';
-  localURL = 'http://192.168.1.2:5500';
+  //apiURL = 'http://192.168.1.2:5500/';
+  localURL = 'http://193.251.23.107:5500/data';
 
   constructor( private http: HttpClient ) { }
 

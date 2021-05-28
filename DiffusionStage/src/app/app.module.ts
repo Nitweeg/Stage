@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HeaderAdminComponent} from './header-admin/header-admin.component';
+import {HeaderAdminComponent} from './NetworkP/header-admin/header-admin.component';
 import {MatToolbarModule} from  '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -15,32 +15,31 @@ import {MatButtonModule} from '@angular/material/button';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
-import {DiffusionComponent} from './diffusion/diffusion.component';
+import {DiffusionComponent} from './NetworkP/diffusion/diffusion.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import {DataTableComponent} from './data-table/data-table.component';
+import {DataTableComponent} from './NetworkP/data-table/data-table.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { LogsComponent } from './logs/logs.component';
-import { ScansComponent } from './scans/scans.component';
-import { RetourComponent } from './retour/retour.component';
-import { ParametreComponent } from './parametre/parametre.component';
-import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import { SearchComponent } from './search/search.component';
-import { DataUtilComponent } from './data-util/data-util.component';
+import { ScansComponent } from './NetworkP/scans/scans.component';
+import { RetourComponent } from './NetworkP/retour/retour.component';
+import { ParametreComponent } from './NetworkP/parametre/parametre.component';
+import { UtilisateurComponent } from './NetworkP/utilisateur/utilisateur.component';
+import { SearchComponent } from './NetworkP/search/search.component';
+import { DataUtilComponent } from './NetworkP/data-util/data-util.component';
 import {MatTreeModule} from '@angular/material/tree';
-import { MenuParametreComponent } from './menu-parametre/menu-parametre.component';
-import { DataParametreComponent } from './data-parametre/data-parametre.component';
-import { DataScansComponent } from './data-scans/data-scans.component';
-import { LoginComponent } from './login/login.component';
+import { MenuParametreComponent } from './NetworkP/menu-parametre/menu-parametre.component';
+import { DataParametreComponent } from './NetworkP/data-parametre/data-parametre.component';
+import { DataScansComponent } from './NetworkP/data-scans/data-scans.component';
+import { LoginComponent } from './NetworkP/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { CarnetComponent } from './carnet/carnet.component';
+import { ForbiddenComponent } from './NetworkP/forbidden/forbidden.component';
+import { CarnetComponent } from './NetworkP/carnet/carnet.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PopuputilComponent } from './popuputil/popuputil.component';
+import { PopuputilComponent } from './NetworkP/popuputil/popuputil.component';
 
 
 
@@ -50,7 +49,6 @@ import { PopuputilComponent } from './popuputil/popuputil.component';
     HeaderAdminComponent,
     DiffusionComponent,
     DataTableComponent,
-    LogsComponent,
     ScansComponent,
     RetourComponent,
     ParametreComponent,

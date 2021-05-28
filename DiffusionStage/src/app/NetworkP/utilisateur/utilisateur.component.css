@@ -18,7 +18,7 @@ img{
 .mat-toolbar{
   height: 7vh;
   background-color: white;
-  background-image: url(../../assets/img/backgroundutil.jpg);
+  background-image: url(../../../assets/img/backgroundutil.jpg);
   background-repeat: no-repeat;
   background-position: top right;
   background-size:28vw 7vh;
@@ -151,38 +151,21 @@ h1{
 
 .Fleche { 
       grid-area: Fleche;
-    
+      background-color: aqua; 
 }
 
 .Epingle { 
-    grid-area: Epingle;   
+    grid-area: Epingle;
+    background-color:chartreuse; 
 }
 
 .Filter { 
     grid-area: Filter;
+    background-color: brown; 
 }
 
 /**/
 
 .mat-form-field + .mat-form-field {
     margin-left: 8px;
-}
-
-/* Logs */
-
-.Export {
-    overflow:hidden; 
-}
-
-.buttonlogs{
-    margin-top: 2vh;
-    margin-left: 2vh;
-    margin-bottom: 2vh;
-}
-
-#logs{
-    width: 99vw;
-	height: 80vh;   
-}
-
-/**/
+  }

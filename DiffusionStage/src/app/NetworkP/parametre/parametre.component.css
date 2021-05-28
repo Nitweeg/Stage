@@ -18,7 +18,7 @@ img{
 .mat-toolbar{
   height: 7vh;
   background-color: white;
-  background-image: url(../../assets/img/backgroundutil.jpg);
+  background-image: url(../../../assets/img/backgroundutil.jpg);
   background-repeat: no-repeat;
   background-position: top right;
   background-size:28vw 7vh;
