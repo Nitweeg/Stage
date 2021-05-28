@@ -1,54 +1,34 @@
-
-
 <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
-      
-        <!-- Utilisateur Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Utilisateur </th>
-          <td mat-cell *matCellDef="let element"> 
-            <input type="text" matInput [(ngModel)]="element.position">
-           </td>
-        </ng-container>
-      
-        <!-- Groupe Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Groupe </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-      
-        <!-- Atelier Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Atelier </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-        </ng-container>
+  <table mat-table [dataSource]="dataSource">
 
-        <!-- Permissions -->
+    <!-- Utilisateur Column -->
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Utilisateur </th>
+      <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="permi">
-            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> permission </th>
-            <td mat-cell *matCellDef="let element"> {{element.permi}} </td>
-        </ng-container>
+    <!-- Groupe Column -->
+    <ng-container matColumnDef="groupe">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Groupe </th>
+      <td mat-cell *matCellDef="let element"> {{element.groupe}} </td>
+    </ng-container>
 
-        <!-- Sup Column -->
+    <!-- Delete Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Delete </th>
+      <td mat-cell *matCellDef="let element"> <button mat-button> <mat-icon>delete</mat-icon> </button></td>
+    </ng-container>
 
-        <ng-container matColumnDef="util">
-            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Supprimer </th>
-            <td mat-cell *matCellDef="let element"> {{element.util}} </td>
-        </ng-container>
 
-        
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-            (click)="selection.toggle(row)">
-        </tr>
-    
-      </table>
-      <mat-paginator #paginator
-          [length]="dataSource?.data?.length"
-          [pageIndex]="0"
-          [pageSize]="13"
-          [pageSizeOptions]="[1,5, 10,13, 20]">
-      </mat-paginator>
-    </div>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+    </tr>
+
+  </table>
+  <mat-paginator #paginator [length]="dataSource?.data?.length" [pageIndex]="0" [pageSize]="13"
+    [pageSizeOptions]="[1,5, 10,13, 20]">
+  </mat-paginator>
+</div>
+

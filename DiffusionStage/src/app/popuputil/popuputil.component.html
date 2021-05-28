@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Ajout d'un utilisateur :</h2>
+
+<mat-dialog-content >
+    <div>
+        <span>Nom : <input style="width: 20vh;" [(ngModel)]="nom" ></span>
+    </div>
+    <div>
+        <span>Mot de passe : <input style="width: 30vh;" [(ngModel)]="mdp"></span>
+    </div>
+    <div>
+        <span>Groupe : <input style="width: 20vh;" [(ngModel)]="groupe" ></span>
+    </div>
+    
+</mat-dialog-content>
+
+<mat-dialog-actions style="display: flex; justify-content: space-between;">
+    <button class="mat-raised-button" (click)="addUtilisateur()">Créer</button>
+    <button class="mat-raised-button" (click)="close()">Annuler</button>
+</mat-dialog-actions>

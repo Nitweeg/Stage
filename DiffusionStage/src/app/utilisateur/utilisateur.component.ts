@@ -1,6 +1,8 @@
+import { PopuputilComponent } from './../popuputil/popuputil.component';
 import { Component, OnInit,Input, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatMenuTrigger} from '@angular/material/menu';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 export interface PeriodicElement {
   name: string;
@@ -43,10 +45,14 @@ export class UtilisateurComponent implements OnInit {
   closeMyMenu() {
     this.test.closeMenu();
   }
-
   xpandStatus=false;
 
-  constructor() { }
+  openDialogUser() {
+    const dialogConfig = new MatDialogConfig();
+    this.matDialog.open(PopuputilComponent);
+  }
+
+  constructor(private matDialog: MatDialog) { }
 
   ngOnInit(): void {
   }

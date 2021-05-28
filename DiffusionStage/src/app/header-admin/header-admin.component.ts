@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatMenuTrigger} from '@angular/material/menu';
+import { AuthService } from '../service/auth.service';
 
 export interface PeriodicElement {
   name: string;
@@ -47,8 +48,13 @@ export class HeaderAdminComponent implements OnInit {
     this.test.closeMenu();
   }
 
+  constructor(public authService: AuthService){}
 
   ngOnInit(): void {
+  }
+
+  onLogout(){
+    this.authService.logout();
   }
 
 }

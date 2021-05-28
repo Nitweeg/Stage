@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserModule} from '@angular/platform-browser';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {AppRoutingModule} from './app-routing.module';
@@ -34,6 +35,14 @@ import {MatTreeModule} from '@angular/material/tree';
 import { MenuParametreComponent } from './menu-parametre/menu-parametre.component';
 import { DataParametreComponent } from './data-parametre/data-parametre.component';
 import { DataScansComponent } from './data-scans/data-scans.component';
+import { LoginComponent } from './login/login.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { CarnetComponent } from './carnet/carnet.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PopuputilComponent } from './popuputil/popuputil.component';
+
+
 
 @NgModule({
   declarations: [
@@ -51,6 +60,11 @@ import { DataScansComponent } from './data-scans/data-scans.component';
     MenuParametreComponent,
     DataParametreComponent,
     DataScansComponent,
+    LoginComponent,
+    ForbiddenComponent,
+    CarnetComponent,
+    PopuputilComponent,
+   
   ],
   imports: [
     MatGridListModule,
@@ -74,11 +88,20 @@ import { DataScansComponent } from './data-scans/data-scans.component';
     MatFormFieldModule,
     MatInputModule,
     MatTreeModule,
+    HttpClientModule,
+    MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [
     
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  entryComponents: [
+    PopuputilComponent
+  ]
+
+  
 })
 export class AppModule {
   
