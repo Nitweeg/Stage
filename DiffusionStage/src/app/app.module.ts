@@ -40,7 +40,7 @@ import { ForbiddenComponent } from './NetworkP/forbidden/forbidden.component';
 import { CarnetComponent } from './NetworkP/carnet/carnet.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PopuputilComponent } from './NetworkP/popuputil/popuputil.component';
-
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -89,6 +89,7 @@ import { PopuputilComponent } from './NetworkP/popuputil/popuputil.component';
     HttpClientModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatCardModule,
   ],
   providers: [
     
