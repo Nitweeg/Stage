@@ -6,16 +6,14 @@ import { ForbiddenComponent } from './NetworkP/forbidden/forbidden.component';
 import {HeaderAdminComponent} from './NetworkP/header-admin/header-admin.component';
 import { LoginComponent } from './NetworkP/login/login.component';
 import { ParametreComponent } from './NetworkP/parametre/parametre.component';
-import { RetourComponent } from './NetworkP/retour/retour.component';
 import { ScansComponent } from './NetworkP/scans/scans.component';
 import { SecuriteGuard } from './securite.guard';
 import { UtilisateurComponent } from './NetworkP/utilisateur/utilisateur.component';
 
 const routes: Routes = [
-  { path: 'index', component: HeaderAdminComponent,},
+  { path: 'index', component: HeaderAdminComponent,canActivate:[SecuriteGuard]},
   { path: 'diffusion', component: DiffusionComponent},
-  { path: 'scans', component: ScansComponent},
-  { path: 'retour', component: RetourComponent},
+  { path: 'scans', component: ScansComponent,canActivate:[SecuriteGuard]},
   { path: 'parametre', component: ParametreComponent,canActivate:[SecuriteGuard]},
   { path: 'utilisateur', component: UtilisateurComponent,canActivate:[SecuriteGuard]},
   { path: 'login', component: LoginComponent},

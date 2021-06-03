@@ -2,7 +2,9 @@
 /*Logo solumat*/
 
 img{
-    width:18vh; 
+    width:25vh;
+    padding-left: 0.5vw;
+    padding-top: 0.5vh; 
 }
 
 /**/
@@ -19,7 +21,7 @@ img{
 .mat-toolbar{
   height: 7vh;
   background-color: white;
-  background-image: url(../../../assets/img/backgroundutil.jpg);
+  
   background-repeat: no-repeat;
   background-position: top right;
   background-size:28vw 7vh;
@@ -30,7 +32,7 @@ div {
 }
 
 .mat-sidenav-container{
-  min-height: 93vh !important;
+  position:static;
 }
 
 a{

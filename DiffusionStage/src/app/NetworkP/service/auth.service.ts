@@ -45,7 +45,6 @@ public roles!:string;
       localStorage.setItem('isloggedIn',String(this.isloggedIn));
       }
     });
-  
      return validUser;
   }
 
@@ -53,7 +52,6 @@ public roles!:string;
     if (!this.roles) //this.roles== undefiened
        return false;
     return (this.roles.indexOf('ADMIN') >-1);
-   
   }
 
   logout() { 

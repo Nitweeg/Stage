@@ -4,6 +4,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import { User } from '../Model/user.model';
 import { ApiRestService } from '../service/api-rest.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { PopuputilComponent } from './../popuputil/popuputil.component';
 
 @Component({
   selector: 'app-data-util',
@@ -25,10 +27,21 @@ export class DataUtilComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  constructor(public restapi: ApiRestService) { }
+  constructor(public restapi: ApiRestService,private matDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadUser();
+  }
+
+  openDialogUser() {
+    const dialogConfig = new MatDialogConfig();
+    const dialogRef = this.matDialog.open(PopuputilComponent,{data : {
+      listusers: this.users
+    }});
+    dialogRef.afterClosed().subscribe(result => {
+      this.users = result.listusers;
+      this.dataSource.data = result.listusers;
+    });
   }
 
   loadUser() {
@@ -40,6 +53,14 @@ export class DataUtilComponent implements OnInit {
         this.users.push(u);
       }
     });
+  }
+
+  supUser(element:User){
+    return this.restapi.suppUser(element.idUtil).subscribe((data: {}) => {
+      this.usersData.pop(element);
+      this.dataSource.data = this.usersData;
+    }
+    );
   }
 
 }

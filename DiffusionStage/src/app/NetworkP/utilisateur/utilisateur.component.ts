@@ -1,3 +1,5 @@
+import { User } from './../Model/user.model';
+import { DataUtilComponent } from './../data-util/data-util.component';
 import { PopuputilComponent } from './../popuputil/popuputil.component';
 import { Component, OnInit,Input, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
@@ -47,12 +49,7 @@ export class UtilisateurComponent implements OnInit {
   }
   xpandStatus=false;
 
-  openDialogUser() {
-    const dialogConfig = new MatDialogConfig();
-    this.matDialog.open(PopuputilComponent);
-  }
-
-  constructor(private matDialog: MatDialog) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

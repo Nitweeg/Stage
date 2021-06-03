@@ -1,6 +1,6 @@
 import { DataUtilComponent } from './../data-util/data-util.component';
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from '../Model/user.model';
 import { ApiRestService } from '../service/api-rest.service';
 
@@ -15,7 +15,9 @@ export class PopuputilComponent implements OnInit {
   mdp: any;
   groupe: any;
 
-  constructor(public dialogRef: MatDialogRef<PopuputilComponent>, public restApi: ApiRestService) { }
+  constructor(public dialogRef: MatDialogRef<PopuputilComponent>, 
+    public restApi: ApiRestService,
+    @Inject(MAT_DIALOG_DATA) public data: {listusers: any[]}) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +30,8 @@ export class PopuputilComponent implements OnInit {
     const u = new User(this.nom, this.mdp,this.groupe);
     this.restApi.addUser(u).subscribe(prod =>
       console.log(u));
-    this.close();
+    this.data.listusers.push(u);
+    this.dialogRef.close(this.data);
   }
 
 }

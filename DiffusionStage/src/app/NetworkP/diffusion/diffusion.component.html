@@ -1,111 +1,68 @@
-<!--Logo de l'entreprise + info utilisateur connecté-->
-
-<div class="flex-container">
-    <div class="flex-item"><img src="../../assets/img/LogoSolumat.jpg"></div> 
-    <div class="flex-item">
-      <span id="compte">Fred Delattre</span>
-      
-      <app-menu-parametre></app-menu-parametre>
-      <button mat-icon-button >
-        <mat-icon style="font-size: 3vh;">logout</mat-icon>
-      </button> 
-    </div> 
-</div>
-  
+<app-header-admin></app-header-admin>
+<mat-divider></mat-divider>
   <!-- **** -->
-  
-  <!-- Début de ma toolbar -->
-  
-    <div style="z-index: -1;"> 
-      <mat-toolbar>
-        <div fxShow="true" fxHide.gt-sm="true">
-          <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon style="font-size: 3vh;">menu</mat-icon>
-          </button>
-        </div>
-    
-        <div fxShow="true" fxHide.lt-md="true">
-          <a mat-flat-button class="item" [routerLink]="['/index']">Accueil</a>
-        </div>
-  
-        <div fxShow="true" fxHide.lt-md="true">
-          <a mat-flat-button class="item" [routerLink]="['/Stock']">Gestion des stocks</a>
-        </div>
-  
-        <div fxShow="true" fxHide.lt-md="true">
-          <a mat-flat-button class="item" [routerLink]="['/AccueilDevis']">Gestion des devis</a>
-        </div>
-  
-        <div fxShow="true" fxHide.lt-md="true">
-          <a mat-flat-button class="item" [routerLink]="['/Carnet']">Carnet</a>
-        </div>
-  
-        <div fxShow="true" fxHide.lt-md="true">
-          <a mat-flat-button class="companyName"  (mouseenter)="openMyMenu()" [matMenuTriggerFor] = "menu">Diffusion</a>
-          <mat-menu #menu="matMenu">
-            <a  mat-flat-button [routerLink]="['/diffusion']">Retour</a>
-            <a  mat-flat-button [routerLink]="['/scans']">Scans</a>
-          </mat-menu>
-        </div>
-    
-      </mat-toolbar>
-  
-      <!-- Responsive de ma toolBar-->
-  
-      <mat-sidenav-container fxFlexFill class="example-container">
-    
-        <mat-sidenav #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
-          <div fxLayout="column">
-            <a mat-flat-button [routerLink]="['/index']" class="item">Accueil</a>
-            <a mat-flat-button [routerLink]="['/Stock']" class="item">Gestion des stocks</a>
-            <a mat-flat-button [routerLink]="['/AccueilDevis']" class="item">Gestion des devis</a>
-            <a mat-flat-button [routerLink]="['/scans']" class="item">Carnet</a>
-            <a mat-flat-button [routerLink]="['/Diffusion']" class="companyName" (mouseenter)="openMyMenu()" [matMenuTriggerFor] = "dif">Diffusion</a>
-            <mat-menu #dif="matMenu">
-                <a  mat-menu-item [routerLink]="['/scans']" >Retour</a>
-                <a  mat-menu-item [routerLink]="['/scans']">Scans</a>
-              </mat-menu>
-          </div>
-        </mat-sidenav>
-      <!-- **** -->
-      <mat-divider></mat-divider>
-
-      <div class="grid-container2">
-
-        <div class="Fleche">
-            <mat-accordion>
-                  <mat-expansion-panel hideToggle [(expanded)]="xpandStatus" disabled>
-                    <mat-expansion-panel-header>
-                        <mat-form-field style="background-color: white; width: 100%;">
-                            <mat-label>Filter</mat-label>
-                            <input matInput (keyup)="applyFilter($event)" placeholder="Nom PDF" #input>
-                          </mat-form-field>
-                          <button (click)='xpandStatus=xpandStatus?false:true'><mat-icon>swap_vert</mat-icon></button>
-                          <tr class="mat-row" *matNoDataRow>
-                            <td class="mat-cell" colspan="4">Aucun pdf ne correspond à votre demande "{{input.value}}"</td>
-                          </tr>
-                    </mat-expansion-panel-header>
-                    <button>test</button>
-                  </mat-expansion-panel>
-            </mat-accordion>
-        </div>       
+  <div class="grid-container">
+    <div class="PDF">
+      <p style="text-align: center;">
+        <embed [src]="nompdf | pdf" type="application/pdf"
+          height="700px" width="500">
+      </p>
     </div>
-
+    <div class="Search"></div>
+    <div class="Tab">
       
 
-    <div class="grid-container">
-        <div class="PDF">
-          <p style="text-align: center;">
-            <embed src="ftp://192.168.1.2/DOCUMENTATIONS/Scans_Diffusions/Retours/Retour.pdf" type="application/pdf"   height="700px" width="500">
-        </p>
-        </div>
-        <div class="Search"></div>
-        <div class="Tab">
-            <app-data-table #merde></app-data-table>
-        </div>
-    </div>
-      </mat-sidenav-container>
-    </div>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+  
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+          <mat-checkbox>
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="ToogleTag()">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+    
+      <!-- N° Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;"> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+    
+      <!-- PDF Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Pdf </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
 
-    <mat-divider></mat-divider>
-  <!-- **** -->
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+  
+      <!-- Delete Column -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Afficher </th>
+        <td mat-cell *matCellDef="let element"> <button mat-button (click)="loadPDF(element.name)" > <mat-icon>visibility</mat-icon> </button></td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          (click)="selection.toggle(row)">
+      </tr>
+  
+    </table>
+    <mat-paginator #paginator
+        [length]="dataSource?.data?.length"
+        [pageIndex]="0"
+        [pageSize]="10"
+        [pageSizeOptions]="[1,10, 50, 100, 500]">
+    </mat-paginator>
+  </div>
+    </div>
+  </div>

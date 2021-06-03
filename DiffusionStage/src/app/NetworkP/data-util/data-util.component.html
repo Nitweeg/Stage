@@ -16,7 +16,7 @@
     <!-- Delete Column -->
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Delete </th>
-      <td mat-cell *matCellDef="let element"> <button mat-button> <mat-icon>delete</mat-icon> </button></td>
+      <td mat-cell *matCellDef="let element"> <button mat-button (click)="supUser(element)"> <mat-icon>delete</mat-icon> </button></td>
     </ng-container>
 
 
@@ -31,4 +31,4 @@
     [pageSizeOptions]="[1,5, 10,13, 20]">
   </mat-paginator>
 </div>
-
+<button (click)='openDialogUser()'>Add User</button>

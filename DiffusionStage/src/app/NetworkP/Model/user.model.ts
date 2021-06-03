@@ -1,4 +1,5 @@
 export class User {
+    idUtil!: number;
     nom!: string;
     mdp!: string;
     groupe!: string;

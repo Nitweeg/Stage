@@ -20,15 +20,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import {DataTableComponent} from './NetworkP/data-table/data-table.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ScansComponent } from './NetworkP/scans/scans.component';
-import { RetourComponent } from './NetworkP/retour/retour.component';
 import { ParametreComponent } from './NetworkP/parametre/parametre.component';
 import { UtilisateurComponent } from './NetworkP/utilisateur/utilisateur.component';
-import { SearchComponent } from './NetworkP/search/search.component';
 import { DataUtilComponent } from './NetworkP/data-util/data-util.component';
 import {MatTreeModule} from '@angular/material/tree';
 import { MenuParametreComponent } from './NetworkP/menu-parametre/menu-parametre.component';
@@ -40,7 +37,8 @@ import { ForbiddenComponent } from './NetworkP/forbidden/forbidden.component';
 import { CarnetComponent } from './NetworkP/carnet/carnet.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PopuputilComponent } from './NetworkP/popuputil/popuputil.component';
-
+import {MatCardModule} from '@angular/material/card';
+import { PdfPipe } from './pdf.pipe';
 
 
 @NgModule({
@@ -48,12 +46,9 @@ import { PopuputilComponent } from './NetworkP/popuputil/popuputil.component';
     AppComponent,
     HeaderAdminComponent,
     DiffusionComponent,
-    DataTableComponent,
     ScansComponent,
-    RetourComponent,
     ParametreComponent,
     UtilisateurComponent,
-    SearchComponent,
     DataUtilComponent,
     MenuParametreComponent,
     DataParametreComponent,
@@ -62,7 +57,7 @@ import { PopuputilComponent } from './NetworkP/popuputil/popuputil.component';
     ForbiddenComponent,
     CarnetComponent,
     PopuputilComponent,
-   
+    PdfPipe,
   ],
   imports: [
     MatGridListModule,
@@ -89,6 +84,7 @@ import { PopuputilComponent } from './NetworkP/popuputil/popuputil.component';
     HttpClientModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatCardModule,
   ],
   providers: [
     
