@@ -2,7 +2,7 @@
 /*Logo solumat*/
 
 img{
-    width:25vh;
+    width:30vh;
     padding-left: 0.5vw;
     padding-top: 0.5vh; 
 }
@@ -21,7 +21,7 @@ img{
 .mat-toolbar{
   height: 7vh;
   background-color: white;
-  
+  background-image: url("../../../assets/img/backgroundutil.jpg");
   background-repeat: no-repeat;
   background-position: top right;
   background-size:28vw 7vh;
