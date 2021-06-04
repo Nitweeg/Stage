@@ -24,7 +24,7 @@
     </div>
 
     <div fxShow="true" fxHide.lt-md="true">
-      <a mat-flat-button class="item" *ngIf="authService.isAdmin() || authService.isBATEG() || authService.isADMINISTRATION()"[routerLink]="['/index']">Accueil</a>
+      <a mat-flat-button class="item" *ngIf="authService.isAdmin() || authService.isBATEG() || authService.isADMINISTRATION() || authService.isMAGASIN()"[routerLink]="['/index']">Accueil</a>
     </div>
 
     <div fxShow="true" fxHide.lt-md="true">
@@ -36,14 +36,14 @@
     </div>
 
     <div fxShow="true" fxHide.lt-md="true">
-      <a *ngIf="authService.isAdmin() || authService.isBATEG() || authService.isADMINISTRATION()" mat-flat-button class="item" [routerLink]="['/carnet']">Carnet</a>
+      <a *ngIf="authService.isAdmin()" mat-flat-button class="item" [routerLink]="['/carnet']">Carnet</a>
     </div>
 
     <div fxShow="true" fxHide.lt-md="true">
-      <a mat-flat-button class="item" (click)="openMyMenu()" [matMenuTriggerFor]="dif">Diffusion</a>
+      <a mat-flat-button class="item" (mouseenter)="openMyMenu()" [matMenuTriggerFor]="dif" *ngIf="authService.isAdmin() || authService.isADMINISTRATION() || authService.isBATEG()">Diffusion</a>
       <mat-menu #dif="matMenu">
-        <a mat-flat-button *ngIf="authService.isAdmin() || authService.isADMINISTRATION()" [routerLink]="['/diffusion']">Commande</a>
-        <a mat-flat-button *ngIf="authService.isAdmin() || authService.isADMINISTRATION()" [routerLink]="['/scans']">Retour</a>
+        <a mat-flat-button *ngIf="authService.isAdmin() || authService.isADMINISTRATION() || authService.isBATEG()" [routerLink]="['/diffusion']">Commande</a>
+        <a mat-flat-button *ngIf="authService.isAdmin() || authService.isADMINISTRATION() || authService.isBATEG()" [routerLink]="['/scans']">Retour</a>
       </mat-menu>
     </div>
 
