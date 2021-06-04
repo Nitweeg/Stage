@@ -84,6 +84,31 @@ suppUser(id: number): Observable<User> {
   );
 }
 
+deletepdf(nom:string):Observable<Object>{
+  return this.http.delete(this.localURLFTP+'/Commandes/'+nom)
+}
+
+deletepdfRetour(nom:string):Observable<Object>{
+  return this.http.delete(this.localURLFTP+'/Retours/'+nom)
+}
+
+majcheck(check:any){
+  console.log(check);
+  return this.http.put(this.localURLFTP+'/Commandes/', check)
+}
+
+majcheckRetour(check:any){
+  this.http.put(this.localURLFTP+'/Retours', check)
+}
+
+renamepdf(rename:any){
+  this.http.put(this.localURLFTP+'/Commandes', rename)
+}
+
+renamepdfRetours(rename:any){
+  this.http.put(this.localURLFTP+'/Retours', rename)
+}
+
 userToJson(u: User){
   let js: any = {'nom': u.nom, 'mdp': u.mdp, 'groupe': u.groupe};
   return js;

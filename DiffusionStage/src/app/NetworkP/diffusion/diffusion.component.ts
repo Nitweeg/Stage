@@ -4,10 +4,12 @@ import {SelectionModel} from '@angular/cdk/collections';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatPaginator } from '@angular/material/paginator';
 import { ApiRestService } from '../service/api-rest.service';
+import { AuthService } from '../service/auth.service';
 
 export interface PeriodicElement {
+  select: string;
   position: string;
-  name: number;
+  name: string;
   date: string;
 }
 
@@ -48,10 +50,6 @@ export class DiffusionComponent implements OnInit {
   selection = new SelectionModel<PeriodicElement>(true, []);
   ShowMe = true;
 
-  ToogleTag(){
-    this.ShowMe=!this.ShowMe;
-  }
-
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -72,7 +70,7 @@ export class DiffusionComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  constructor(private restapi: ApiRestService){}
+  constructor(private restapi: ApiRestService,public authService: AuthService){}
 
   ngOnInit(): void { this.loadnompdf();
   }
@@ -87,7 +85,15 @@ export class DiffusionComponent implements OnInit {
           i++
         }
         console.log(this.listpdf[0]);
-        this.ELEMENT_DATA.push({name:this.listpdf[0][pos]["nom"],date:this.listpdf[0][pos]["date"],position:pos})
+        console.log(this.listpdf[0][pos]["select"])
+        if(this.authService.isAdmin()){
+          this.ELEMENT_DATA.push({select:this.listpdf[0][pos]["select"],name:this.listpdf[0][pos]["nom"],date:this.listpdf[0][pos]["date"],position:pos})
+        }
+        else{
+          if(!this.listpdf[0][pos]["select"]){
+            this.ELEMENT_DATA.push({select:this.listpdf[0][pos]["select"],name:this.listpdf[0][pos]["nom"],date:this.listpdf[0][pos]["date"],position:pos})
+          }
+        }
       }
       this.dataSource.data= this.ELEMENT_DATA;
     });
@@ -96,6 +102,17 @@ export class DiffusionComponent implements OnInit {
   loadPDF(namepdf:string){
     this.nompdf = "http://193.251.23.107:5500/ftp/Commandes/" + namepdf;
     console.log(this.nompdf)
+  }
+
+  ToogleTag(name:any,select:any){
+    this.ShowMe=!this.ShowMe;
+    console.log(name);
+    const i = {'name':name,'checked':!select};
+    console.log(i);
+    this.restapi.majcheck(i).subscribe((s) => {
+      console.log(s);
+      return s;
+    });
   }
 
 }
