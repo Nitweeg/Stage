@@ -24,26 +24,26 @@
     </div>
 
     <div fxShow="true" fxHide.lt-md="true">
-      <a mat-flat-button class="item" [routerLink]="['/index']">Accueil</a>
+      <a mat-flat-button class="item" *ngIf="authService.isAdmin() || authService.isBATEG() || authService.isADMINISTRATION()"[routerLink]="['/index']">Accueil</a>
     </div>
 
     <div fxShow="true" fxHide.lt-md="true">
-      <a mat-flat-button class="item" [routerLink]="['/Stock']">Gestion des stocks</a>
+      <a mat-flat-button class="item" *ngIf="authService.isAdmin() || authService.isMAGASIN()" [routerLink]="['/Stock']">Gestion des stocks</a>
     </div>
 
     <div fxShow="true" fxHide.lt-md="true">
-      <a mat-flat-button class="item" [routerLink]="['/AccueilDevis']">Gestion des devis</a>
+      <a mat-flat-button class="item" *ngIf="authService.isAdmin() || authService.isADMINISTRATION()" [routerLink]="['/AccueilDevis']">Gestion des devis</a>
     </div>
 
     <div fxShow="true" fxHide.lt-md="true">
-      <a *ngIf="authService.isAdmin()" mat-flat-button class="item" [routerLink]="['/carnet']">Carnet</a>
+      <a *ngIf="authService.isAdmin() || authService.isBATEG() || authService.isADMINISTRATION()" mat-flat-button class="item" [routerLink]="['/carnet']">Carnet</a>
     </div>
 
     <div fxShow="true" fxHide.lt-md="true">
-      <a mat-flat-button class="item" (mouseenter)="openMyMenu()" [matMenuTriggerFor]="dif">Diffusion</a>
+      <a mat-flat-button class="item" (click)="openMyMenu()" [matMenuTriggerFor]="dif">Diffusion</a>
       <mat-menu #dif="matMenu">
-        <a mat-flat-button [routerLink]="['/diffusion']">Commande</a>
-        <a mat-flat-button [routerLink]="['/scans']">Retour</a>
+        <a mat-flat-button *ngIf="authService.isAdmin() || authService.isADMINISTRATION()" [routerLink]="['/diffusion']">Commande</a>
+        <a mat-flat-button *ngIf="authService.isAdmin() || authService.isADMINISTRATION()" [routerLink]="['/scans']">Retour</a>
       </mat-menu>
     </div>
 
@@ -58,10 +58,10 @@
         <a mat-flat-button [routerLink]="['/index']" class="item">Accueil</a>
         <a mat-flat-button [routerLink]="['/Stock']" class="item">Gestion des stocks</a>
         <a mat-flat-button [routerLink]="['/AccueilDevis']" class="item">Gestion des devis</a>
-        <a *ngIf="authService.isAdmin()" mat-flat-button [routerLink]="['/scans']" class="item">Carnet</a>
-        <a mat-flat-button [routerLink]="['/Diffusion']" class="item" [matMenuTriggerFor]="dif">Diffusion</a>
+        <a *ngIf="authService.isAdmin()" mat-flat-button [routerLink]="['/carnet']" class="item">Carnet</a>
+        <a mat-flat-button class="item" [matMenuTriggerFor]="dif">Diffusion</a>
         <mat-menu #dif="matMenu">
-          <a mat-menu-item [routerLink]="['/scans']">Commande</a>
+          <a mat-menu-item [routerLink]="['/diffusion']">Commande</a>
           <a mat-menu-item [routerLink]="['/scans']">Retour</a>
         </mat-menu>
       </div>

@@ -4,8 +4,6 @@ import {SelectionModel} from '@angular/cdk/collections';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatPaginator } from '@angular/material/paginator';
 import { ApiRestService } from '../service/api-rest.service';
-import {DomSanitizer} from '@angular/platform-browser';
-import { Template } from '@angular/compiler/src/render3/r3_ast';
 
 export interface PeriodicElement {
   position: string;

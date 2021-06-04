@@ -30,7 +30,6 @@ import { DataUtilComponent } from './NetworkP/data-util/data-util.component';
 import {MatTreeModule} from '@angular/material/tree';
 import { MenuParametreComponent } from './NetworkP/menu-parametre/menu-parametre.component';
 import { DataParametreComponent } from './NetworkP/data-parametre/data-parametre.component';
-import { DataScansComponent } from './NetworkP/data-scans/data-scans.component';
 import { LoginComponent } from './NetworkP/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ForbiddenComponent } from './NetworkP/forbidden/forbidden.component';
@@ -52,7 +51,6 @@ import { PdfPipe } from './pdf.pipe';
     DataUtilComponent,
     MenuParametreComponent,
     DataParametreComponent,
-    DataScansComponent,
     LoginComponent,
     ForbiddenComponent,
     CarnetComponent,

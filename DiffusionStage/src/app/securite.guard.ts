@@ -19,11 +19,24 @@ export class SecuriteGuard implements CanActivate {
       if (this.AuthService.isAdmin())
 
         return true;
-        else
+      else if(this.AuthService.isBATEG())
+        {
+          return true
+        }
+      else if(this.AuthService.isADMINISTRATION())
+        {
+          return true
+        }
+      else if(this.AuthService.isMAGASIN())
+        {
+          return true
+        }
+      else
         {
           this.router.navigate(['forbidden']);
            return false;
         }
+      
   }
   
 }

@@ -51,7 +51,25 @@ public roles!:string;
   isAdmin():Boolean{
     if (!this.roles) //this.roles== undefiened
        return false;
-    return (this.roles.indexOf('ADMIN') >-1);
+    return (this.roles.indexOf('ADMIN')>-1);
+  }
+
+  isBATEG():Boolean{
+    if (!this.roles) //this.roles== undefiened
+       return false;
+    return (this.roles.indexOf('BATEG')>-1);
+  }
+
+  isADMINISTRATION():Boolean{
+    if (!this.roles) //this.roles== undefiened
+       return false;
+    return (this.roles.indexOf('ADMINISTRATION')>-1);
+  }
+
+  isMAGASIN():Boolean{
+    if (!this.roles) //this.roles== undefiened
+       return false;
+    return (this.roles.indexOf('MAGASIN')>-1);
   }
 
   logout() { 
