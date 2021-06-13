@@ -11,6 +11,9 @@ export class AuthService implements OnInit {
   users: User [] = [];
   usersData : any = [];
 
+  nomUser= '';
+  prenomUser= '';
+
 public loggedUser!:string;
 public isloggedIn: Boolean = false;
 public roles!:string;
@@ -40,6 +43,8 @@ public roles!:string;
       
       this.loggedUser = curUser.nom;
       this.isloggedIn = true;
+      this.nomUser = curUser.nomR;
+      this.prenomUser = curUser.prenomR;
       this.roles = curUser.groupe;
       localStorage.setItem('loggedUser',this.loggedUser);
       localStorage.setItem('isloggedIn',String(this.isloggedIn));

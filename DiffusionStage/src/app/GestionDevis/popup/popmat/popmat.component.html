@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Ajout d'un matériel :</h2>
+
+<mat-dialog-content >
+    <div>
+        <span>Reference : <input style="width: 20vh;" [(ngModel)]="ref" ></span>
+    </div>
+    <div>
+        <span>Nom : <input style="width: 20vh;" [(ngModel)]="nom"></span>
+    </div>
+    <div>
+        <span>Catégorie <input style="width: 20vh;" [(ngModel)]="cat"> </span>
+    </div>
+    <div>
+        <span>Prix calendair  : <input style="width: 4vh;" [(ngModel)]="prix" ></span>
+    </div>
+    
+    
+</mat-dialog-content>
+
+<mat-dialog-actions style="display: flex; justify-content: space-between;">
+    <button class="mat-raised-button" (click)="addMateriel()">Créer</button>
+    <button class="mat-raised-button" (click)="close()">Annuler</button>
+</mat-dialog-actions>

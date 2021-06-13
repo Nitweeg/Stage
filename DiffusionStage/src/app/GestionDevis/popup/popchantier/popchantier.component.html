@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Ajout d'un chantier :</h2>
+
+<mat-dialog-content >
+    <div>
+        <span>Nom : <input style="width: 20vh;" [(ngModel)]="nom" ></span>
+    </div>
+    <div>
+        <span>Adresse : <input style="width: 30vh;" [(ngModel)]="adresse"></span>
+    </div>
+    <div>
+        <span>Code Postal : <input style="width: 6vh;" [(ngModel)]="code" minlength="5" maxlength="5" ></span>
+    </div>
+    <div>
+        <span>Ville : <input style="width: 20vh;" [(ngModel)]="ville" ></span>
+    </div>
+    <div>
+        <span>Nom Societe : <input style="width: 20vh" [(ngModel)]="nomSociete"></span>
+    </div>
+    <div>
+        <span>Marge : <input type='number' style="width: 4vh;" [(ngModel)]="marge" minlength="1" maxlength="3"> % </span>
+    </div>
+    
+</mat-dialog-content>
+
+<mat-dialog-actions style="display: flex; justify-content: space-between;">
+    <button class="mat-raised-button" (click)="addChantier()">Créer</button>
+    <button class="mat-raised-button" (click)="close()">Annuler</button>
+</mat-dialog-actions>

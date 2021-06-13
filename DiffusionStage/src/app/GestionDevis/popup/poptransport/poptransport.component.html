@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Ajout d'un transport :</h2>
+
+<mat-dialog-content >
+    <div>
+        <span>Type : <input style="width: 20vh;" [(ngModel)]="type" ></span>
+    </div>
+    <div>
+        <span>Zone : <input style="width: 4vh;" [(ngModel)]="zone"></span>
+    </div>
+    <div>
+        <span>Montant : <input style="width: 20vh;" [(ngModel)]="montant" ></span>
+    </div>
+    
+</mat-dialog-content>
+
+<mat-dialog-actions style="display: flex; justify-content: space-between;">
+    <button class="mat-raised-button" (click)="addTransport()">Créer</button>
+    <button class="mat-raised-button" (click)="close()">Annuler</button>
+</mat-dialog-actions>

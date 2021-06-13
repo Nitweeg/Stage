@@ -9,6 +9,8 @@ import { ParametreComponent } from './NetworkP/parametre/parametre.component';
 import { ScansComponent } from './NetworkP/scans/scans.component';
 import { SecuriteGuard } from './securite.guard';
 import { UtilisateurComponent } from './NetworkP/utilisateur/utilisateur.component';
+import { DevisComponent } from './GestionDevis/devis/devis.component';
+import { ConsulterComponent } from './GestionDevis/consulter/consulter.component';
 
 const routes: Routes = [
   { path: 'index', component: HeaderAdminComponent,canActivate:[SecuriteGuard]},
@@ -18,7 +20,12 @@ const routes: Routes = [
   { path: 'utilisateur', component: UtilisateurComponent,canActivate:[SecuriteGuard]},
   { path: 'login', component: LoginComponent},
   { path: 'carnet', component: CarnetComponent, canActivate:[SecuriteGuard]},
-  { path: 'forbidden', component: ForbiddenComponent}
+  { path: 'forbidden', component: ForbiddenComponent},
+
+
+  { path: 'devis',component: DevisComponent},
+
+  { path: 'consulter',component: ConsulterComponent}
 ];
 
 @NgModule({

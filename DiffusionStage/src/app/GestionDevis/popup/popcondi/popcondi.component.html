@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Ajout d'une condition spécifique :</h2>
+
+<mat-dialog-content class="dial">
+    <mat-form-field>
+        <input type="text" matInput placeholder="Entrer le nom de la condition" [(ngModel)]='nom'>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput placeholder="Entrer la description de la condition" [(ngModel)]='descrip'></textarea>
+    </mat-form-field>
+    <span> Veuillez cocher les chapitres non nécéssaire avec cette condition :</span>
+    <mat-checkbox [(ngModel)]='Prestation'>Prestation</mat-checkbox>
+    <mat-checkbox [(ngModel)]='Location'>Location</mat-checkbox>
+    <mat-checkbox [(ngModel)]='Mo'>Main d'oeuvre</mat-checkbox>
+    <mat-checkbox [(ngModel)]='Transport'>Transport</mat-checkbox>
+    
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="addCondi()">Créer</button>
+    <button class="mat-raised-button" (click)="close()">Annuler</button>
+</mat-dialog-actions>

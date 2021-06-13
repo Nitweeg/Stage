@@ -1,0 +1,56 @@
+<app-header-admin></app-header-admin>
+<mat-divider></mat-divider>
+<mat-grid-list cols="2" rowHeight="50vh">
+    <mat-grid-tile class="tab" rowspan='2'>
+        <div>
+          <span>Rechercher :
+            <mat-form-field class="auto"> 
+              <mat-label>Recherche</mat-label>
+              <input type="text"
+                     aria-label="Recherche"
+                     matInput
+                     [formControl]="ControlR"
+                     [matAutocomplete]="autoR"
+                     [(ngModel)]='rech'
+                     (keyup.enter)='getDevis()'>
+              <mat-autocomplete #autoR="matAutocomplete" style="max-height: 5vh; scroll-behavior: auto;">
+                <mat-option *ngFor="let option of filteredOptionsR | async" [value]="option" style="height: 4vh;">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </span>
+        </div>
+            <article *ngIf='showInfo'>
+                <table mat-table [dataSource]="dataSource">
+                  <ng-container matColumnDef="{{col}}" *ngFor="let col of Columns">
+                    <th mat-header-cell *matHeaderCellDef style="padding-right: unset !important;">
+                      {{col}}
+                    </th>
+                    <td mat-cell *matCellDef="let element;index as i;" style='width: 15vw;' [ngSwitch]='col'>
+                      <div *ngSwitchDefault>
+                        <span style="font-size: 1vw;">{{element[col]}}</span>
+                      </div>
+                      <div *ngSwitchCase="'Afficher'">
+                        <button mat-flat-button (click)='showPDF(element)' style="background-color: rgb(189, 188, 188);">Afficher</button>
+                      </div>
+                      <div *ngSwitchCase="'Modifier'">
+                        <button mat-flat-button (click)='updatePDF()' style="background-color: rgb(189, 188, 188);" [routerLink]="['/devis']">Modifier</button>
+                      </div>
+                    </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="Columns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: Columns;"></tr>
+                </table>
+            </article>
+    </mat-grid-tile>
+    <mat-grid-tile class="tab" rowspan='2'>
+
+      <div>
+        <button mat-flat-button (click)='sendMail()' style="background-color: rgb(189, 188, 188);" >Envoie mail</button>
+      </div>
+
+      <iframe id='pdf' width='100%' height='100%' src=''></iframe>
+      
+    </mat-grid-tile>
+</mat-grid-list>

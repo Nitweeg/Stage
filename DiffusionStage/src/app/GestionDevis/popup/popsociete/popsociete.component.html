@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Ajout d'une societe :</h2>
+
+<mat-dialog-content >
+    <div>
+        <span>Nom : <input style="width: 20vh;" [(ngModel)]="nom" ></span>
+    </div>
+    <div>
+        <span>Siret : <input style="width: 20vh;" [(ngModel)]="siret" maxlength="14"></span>
+    </div>
+    <div>
+        <span>Adresse : <input style="width: 30vh;" [(ngModel)]="adresse"></span>
+    </div>
+    <div>
+        <span>Code Postal : <input style="width: 6vh;" [(ngModel)]="code" minlength="5" maxlength="5"></span>
+    </div>
+    <div>
+        <span>Ville : <input style="width: 20vh;" [(ngModel)]="ville" ></span>
+    </div>
+    <div>
+        <span>Telephone : <input type='tel' style="width: 10vh;" [(ngModel)]="tel" maxlength="10"></span>
+    </div>
+    <div>
+        <span>Tva : <input style="width: 4vh;" [(ngModel)]="tva"></span>
+    </div>
+    
+</mat-dialog-content>
+
+<mat-dialog-actions style="display: flex; justify-content: space-between;">
+    <button class="mat-raised-button" (click)="addSociete()">Créer</button>
+    <button class="mat-raised-button" (click)="close()">Annuler</button>
+</mat-dialog-actions>

@@ -15,6 +15,9 @@ export class PopuputilComponent implements OnInit {
   mdp: any;
   groupe: any;
 
+  nomR: any;
+  prenomR: any;
+
   constructor(public dialogRef: MatDialogRef<PopuputilComponent>, 
     public restApi: ApiRestService,
     @Inject(MAT_DIALOG_DATA) public data: {listusers: any[]}) { }
@@ -27,7 +30,7 @@ export class PopuputilComponent implements OnInit {
   }
 
   addUtilisateur() {
-    const u = new User(this.nom, this.mdp,this.groupe);
+    const u = new User(this.nom, this.mdp,this.groupe, this.nomR, this.prenomR,);
     this.restApi.addUser(u).subscribe(prod =>
       console.log(u));
     this.data.listusers.push(u);

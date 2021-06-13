@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Ajout d'un contact :</h2>
+
+<mat-dialog-content >
+    <div>
+        <span>Nom : <input mat-input style="width: 20vh;" [(ngModel)]="nom" ></span>
+    </div>
+    <div>
+        <span>E-mail : <input style="width: 30vh;" [(ngModel)]="mail"></span>
+    </div>
+    <div>
+        <span>Telephone : <input type='tel' style="width: 10vh;" [(ngModel)]="tel" minlength="10" maxlength="10"></span>
+    </div>
+    
+</mat-dialog-content>
+
+<mat-dialog-actions style="display: flex; justify-content: space-between;">
+    <button class="mat-raised-button" (click)="addContact()">Créer</button>
+    <button class="mat-raised-button" (click)="close()">Annuler</button>
+</mat-dialog-actions>

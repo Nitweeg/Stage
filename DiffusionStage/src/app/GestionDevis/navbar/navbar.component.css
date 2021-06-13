@@ -1,0 +1,47 @@
+/*Tool barre*/
+.companyName{
+    font-size: 110%;
+    background-color: transparent;
+}
+
+.mat-toolbar{
+  height: 7vh;
+  background-color: white;
+}
+
+div {
+    overflow: inherit;
+}
+
+.mat-sidenav-container{
+  min-height: 93vh !important;
+}
+
+a{
+    font-size: 110%;
+    white-space: normal;
+    color: rgb(129, 127, 127);
+}
+
+a:hover {
+    border-bottom: 4px solid rgb(65, 45, 155);
+    background-color: rgb(255 255 255 / 0%);
+}
+
+
+button{
+    font-size: 110%;
+    min-width: min-content;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+  
+.mat-sidenav-content{
+      font-size: 110%;
+      text-align: center;
+}
+
+
+/**/

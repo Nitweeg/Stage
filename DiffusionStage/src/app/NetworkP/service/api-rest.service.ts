@@ -110,7 +110,7 @@ renamepdfRetours(rename:any){
 }
 
 userToJson(u: User){
-  let js: any = {'nom': u.nom, 'mdp': u.mdp, 'groupe': u.groupe};
+  let js: any = {'nom': u.nom, 'nomR': u.nomR, 'prenomR': u.prenomR, 'mdp': u.mdp, 'groupe': u.groupe};
   return js;
  }
 }

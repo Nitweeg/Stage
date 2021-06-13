@@ -39,6 +39,23 @@ import { PopuputilComponent } from './NetworkP/popuputil/popuputil.component';
 import {MatCardModule} from '@angular/material/card';
 import { PdfPipe } from './pdf.pipe';
 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+
+
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { DevisComponent } from './GestionDevis/devis/devis.component';
+import { ConsulterComponent } from './GestionDevis/consulter/consulter.component';
+import { PopcondiComponent } from './GestionDevis/popup/popcondi/popcondi.component';
+import { PopkitComponent } from './GestionDevis/popup/popkit/popkit.component';
+import { PopsocieteComponent } from './GestionDevis/popup/popsociete/popsociete.component';
+import { PopchantierComponent } from './GestionDevis/popup/popchantier/popchantier.component';
+import { PopmatComponent } from './GestionDevis/popup/popmat/popmat.component';
+import { PopcontactComponent } from './GestionDevis/popup/popcontact/popcontact.component';
+import { PoptransportComponent } from './GestionDevis/popup/poptransport/poptransport.component';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +73,15 @@ import { PdfPipe } from './pdf.pipe';
     CarnetComponent,
     PopuputilComponent,
     PdfPipe,
+    DevisComponent,
+    ConsulterComponent,
+    PopcondiComponent,
+    PopkitComponent,
+    PopsocieteComponent,
+    PopchantierComponent,
+    PopmatComponent,
+    PopcontactComponent,
+    PoptransportComponent,
   ],
   imports: [
     MatGridListModule,
@@ -83,14 +109,24 @@ import { PdfPipe } from './pdf.pipe';
     MatDialogModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatAutocompleteModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatTabsModule
   ],
   providers: [
-    
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ],
   bootstrap: [AppComponent],
 
   entryComponents: [
-    PopuputilComponent
+    PopuputilComponent,
+    PopcondiComponent,
+    PopkitComponent,
+    PopsocieteComponent,
+    PopmatComponent,
+    PopchantierComponent,
+    PopcontactComponent
   ]
 
   

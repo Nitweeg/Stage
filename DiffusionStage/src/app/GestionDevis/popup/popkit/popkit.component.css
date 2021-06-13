@@ -1,0 +1,11 @@
+.dial {
+    display: flex;
+}
+
+table {
+    width: 100%;
+  }
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    text-align: center;
+}
