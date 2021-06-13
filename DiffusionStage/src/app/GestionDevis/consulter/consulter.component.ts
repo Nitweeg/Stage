@@ -8,6 +8,7 @@ import { Materiel } from '../shared/materiel';
 import { RestApiService } from '../shared/rest-api.service';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { AuthService } from 'src/app/NetworkP/service/auth.service';
 
 interface Devis {
   idDevis: string;
@@ -130,7 +131,8 @@ export class ConsulterComponent implements OnInit {
 
   constructor(
     public restApi: RestApiService,
-    public devisServ: DevisServiceService
+    public devisServ: DevisServiceService,
+    public auth: AuthService
   ) { }
 
   Columns: string[] = ['idDevis', 'Emetteur', 'Date', 'Societe', 'Chantier', 'Afficher', 'Modifier'];
@@ -819,7 +821,7 @@ export class ConsulterComponent implements OnInit {
 
               doc.save('Devis ' + this.ele.idDevis + '.pdf');
               this.mailContact = this.devisServ.getMail();
-              let body = 'Bonjour,%0D%0A%0D%0Avoici ci-joint le devis ' + this.ele.idDevis + '.%0D%0A%0D%0ACordialement,%0D%0ANom Prenom';
+              let body = 'Bonjour,%0D%0A%0D%0Avoici ci-joint le devis ' + this.ele.idDevis + '.%0D%0A%0D%0ACordialement,%0D%0A' + this.auth.nomUser + ' ' + this.auth.prenomUser;
               window.open('mailto:' + this.mailContact + '?subject=Devis ' + this.ele.idDevis + '&body=' + body);
               PRESTATION_INFO.splice(0, PRESTATION_INFO.length - 1);
               LOCATION_INFO.splice(0, LOCATION_INFO.length - 1);
